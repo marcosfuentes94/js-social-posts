@@ -1,55 +1,55 @@
 const posts = [
-    {
-      "id": 1,
-      "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-      "media": "https://unsplash.it/600/300?image=171",
-      "author": {
-        "name": "Phil Mangione",
-        "image": "https://unsplash.it/300/300?image=15"
-      },
-      "likes": 80,
-      "created": "2021-06-25"
+{
+    "id": 1,
+    "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+    "media": "https://unsplash.it/600/300?image=171",
+    "author": {
+    "name": "Phil Mangione",
+    "image": "https://unsplash.it/300/300?image=15"
     },
-    {
-      "id": 2,
-      "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-      "media": "https://unsplash.it/600/400?image=112",
-      "author": {
-        "name": "Sofia Perlari",
-        "image": "https://unsplash.it/300/300?image=10"
-      },
-      "likes": 120,
-      "created": "2021-09-03"
+    "likes": 80,
+    "created": "2021-06-25"
+},
+{
+    "id": 2,
+    "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+    "media": "https://unsplash.it/600/400?image=112",
+    "author": {
+    "name": "Sofia Perlari",
+    "image": "https://unsplash.it/300/300?image=10"
     },
-    {
-      "id": 3,
-      "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-      "media": "https://unsplash.it/600/400?image=234",
-      "author": {
-        "name": "Chiara Passaro",
-        "image": null
-      },
-      "likes": 78,
-      "created": "2021-05-15"
+    "likes": 120,
+    "created": "2021-09-03"
+},
+{
+    "id": 3,
+    "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+    "media": "https://unsplash.it/600/400?image=234",
+    "author": {
+    "name": "Chiara Passaro",
+    "image": null
     },
-    {
-      "id": 4,
-      "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias,Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum aspernatur saepe esse quae suscipit commodi assumenda laborum iusto dicta eius dolor incidunt voluptatem obcaecati omnis quaerat numquam culpa cumque sint alias ducimus, sapiente at! Ducimus, hic velit placeat recusandae facere beatae autem! Adipisci corporis asperiores, error reiciendis nostrum totam.",
-      "media": "",
-      "author": {
-        "name": "Luca Formicola",
-        "image": "https://unsplash.it/300/300?image=20"
-      },
-      "likes": 56,
-      "created": "2021-04-03"
+    "likes": 78,
+    "created": "2021-05-15"
+},
+{
+    "id": 4,
+    "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias,Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima ipsum aspernatur saepe esse quae suscipit commodi assumenda laborum iusto dicta eius dolor incidunt voluptatem obcaecati omnis quaerat numquam culpa cumque sint alias ducimus, sapiente at! Ducimus, hic velit placeat recusandae facere beatae autem! Adipisci corporis asperiores, error reiciendis nostrum totam.",
+    "media": "",
+    "author": {
+    "name": "Luca Formicola",
+    "image": "https://unsplash.it/300/300?image=20"
     },
-    {
-      "id": 5,
-      "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-      "media": "https://unsplash.it/600/400?image=534",
-      "author": {
-        "name": "Alessandro Sainato",
-        "image": null
+    "likes": 56,
+    "created": "2021-04-03"
+},
+{
+    "id": 5,
+    "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+    "media": "https://unsplash.it/600/400?image=534",
+    "author": {
+    "name": "Alessandro Sainato",
+    "image": null
     },
     "likes": 95,
     "created": "2021-03-05"
@@ -82,25 +82,25 @@ const profilePic = document.createElement("img");
 profilePic.classList.add("profile-pic");
 
 if (post.author.image) {
-profilePic.src = post.author.image;
-profilePic.alt = post.author.name;
+    profilePic.src = post.author.image;
+    profilePic.alt = post.author.name;
 } else {
-const initials = post.author.name
-.split(" ")
-.map((word) => word.charAt(0))
-.join("");
-const canvas = document.createElement("canvas");
-canvas.width = 300;
-canvas.height = 300;
-const context = canvas.getContext("2d");
-context.fillStyle = "#ccc";
-context.fillRect(0, 0, canvas.width, canvas.height);
-context.font = "150px Arial";
-context.fillStyle = "#fff";
-context.textAlign = "center";
-context.textBaseline = "middle";
-context.fillText(initials, canvas.width / 2, canvas.height / 2);
-profilePic.src = canvas.toDataURL();
+    const initials = post.author.name
+    .split(" ")
+    .map((word) => word.charAt(0))
+    .join("");
+    const canvas = document.createElement("canvas");
+    canvas.width = 300;
+    canvas.height = 300;
+    const context = canvas.getContext("2d");
+    context.fillStyle = "#ccc";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.font = "150px Arial";
+    context.fillStyle = "#fff";
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillText(initials, canvas.width / 2, canvas.height / 2);
+    profilePic.src = canvas.toDataURL();
 }
 
 // CREA I DATI DELL'AUTORE
@@ -139,10 +139,10 @@ const postImage = document.createElement("div");
 postImage.classList.add("post__image");
 
 if (post.media) {
-const imageElement = document.createElement("img");
-imageElement.src = post.media;
-imageElement.alt = "";
-postImage.appendChild(imageElement);
+    const imageElement = document.createElement("img");
+    imageElement.src = post.media;
+    imageElement.alt = "";
+    postImage.appendChild(imageElement);
 }
 
 // CREA IL FOOTER DEL POST
@@ -198,3 +198,40 @@ container.appendChild(postElement);
 for (const post of posts) {
 createPostCard(post);
 }
+// OTTIENI TUTTI I BOTTONI "MI PIACE"
+const likeButtons = document.querySelectorAll(".like-button");
+
+// ARRAY PER SALVARE GLI ID DEI POST AI QUALI È STATO MESSO IL LIKE
+const likedPosts = [];
+
+// AGGIUNGI L'EVENTO DI CLICK A CIASCUN BOTTONE "MI PIACE"
+likeButtons.forEach((button) => {
+let isLiked = false; // VARIABILE PER TENERE TRACCIA DELLO STATO DEL BOTTONE
+
+button.addEventListener("click", function (event) {
+event.preventDefault();
+
+// VERIFICA SE IL BOTTONE È GIÀ STATO CLICCATO
+if (!isLiked) {
+// OTTIENI L'ID DEL POST RELATIVO AL BOTTONE CLICCATO
+const postId = this.dataset.postid;
+
+// OTTIENI IL CONTATORE DEI "MI PIACE" RELATIVO AL POST
+const likeCounter = document.getElementById(`like-counter-${postId}`);
+
+// INCREMENTA IL CONTATORE
+const currentLikes = parseInt(likeCounter.textContent);
+const newLikes = currentLikes + 1;
+likeCounter.textContent = newLikes;
+
+// CAMBIA IL COLORE DEL TESTO DEL BOTTONE
+this.classList.add("liked");
+
+// AGGIUNGI L'ID DEL POST ALL'ARRAY DEI POST PIACIUTI
+likedPosts.push(postId);
+
+// IMPOSTA LO STATO DEL BOTTONE A "PIACIUTO"
+isLiked = true;
+}
+});
+});
