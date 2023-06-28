@@ -116,7 +116,7 @@ postMetaAuthor.textContent = post.author.name;
 const postMetaTime = document.createElement("div");
 postMetaTime.classList.add("post-meta__time");
 const createdDate = new Date(post.created);
-const formattedDate = `${createdDate.getMonth() + 1}-${createdDate.getDate()}-${createdDate.getFullYear()}`;
+const formattedDate = `${createdDate.getDate()}/${createdDate.getMonth() + 1}/${createdDate.getFullYear()}`;
 postMetaTime.textContent = formattedDate;
 
 // AGGIUNGI L'IMMAGINE DEL PROFILO E I METADATI DELL'AUTORE ALL'HEADER
@@ -206,32 +206,41 @@ const likedPosts = [];
 
 // AGGIUNGI L'EVENTO DI CLICK A CIASCUN BOTTONE "MI PIACE"
 likeButtons.forEach((button) => {
-let isLiked = false; // VARIABILE PER TENERE TRACCIA DELLO STATO DEL BOTTONE
-
 button.addEventListener("click", function (event) {
 event.preventDefault();
 
-// VERIFICA SE IL BOTTONE È GIÀ STATO CLICCATO
-if (!isLiked) {
 // OTTIENI L'ID DEL POST RELATIVO AL BOTTONE CLICCATO
 const postId = this.dataset.postid;
 
 // OTTIENI IL CONTATORE DEI "MI PIACE" RELATIVO AL POST
 const likeCounter = document.getElementById(`like-counter-${postId}`);
 
-// INCREMENTA IL CONTATORE
+// VERIFICA SE IL POST È STATO GIA' PIACIUTO
+if (likedPosts.includes(postId)) {
+// DECREMENTA IL CONTATORE
+const currentLikes = parseInt(likeCounter.textContent);
+const newLikes = currentLikes - 1;
+likeCounter.textContent = newLikes;
+
+// RIMUOVI L'ID DEL POST DALL'ARRAY DEI POST PIACIUTI
+const index = likedPosts.indexOf(postId);
+if (index > -1) {
+likedPosts.splice(index, 1);
+}
+
+// RIPRISTINA IL COLORE DEL BOTTONE
+this.classList.remove("liked");
+} else {
+// AGGIORNA IL CONTATORE
 const currentLikes = parseInt(likeCounter.textContent);
 const newLikes = currentLikes + 1;
 likeCounter.textContent = newLikes;
 
-// CAMBIA IL COLORE DEL TESTO DEL BOTTONE
-this.classList.add("liked");
-
 // AGGIUNGI L'ID DEL POST ALL'ARRAY DEI POST PIACIUTI
 likedPosts.push(postId);
 
-// IMPOSTA LO STATO DEL BOTTONE A "PIACIUTO"
-isLiked = true;
+// IMPOSTA IL COLORE DEL BOTTONE
+this.classList.add("liked");
 }
 });
 });
